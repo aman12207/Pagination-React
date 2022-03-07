@@ -1,7 +1,12 @@
 import React from 'react'
 import RenderList from './RenderList';
+import { useGlobalContext } from './context';
 
 function App() {
+  const {loading} = useGlobalContext();
+  if(loading){
+    return <h2 className='loading'>Loading...</h2>
+  }
   return (
   <main>
     <div className="section-title">

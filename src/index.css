@@ -216,6 +216,11 @@ Pagination
   cursor: pointer;
 }
 
+.loading {
+  text-align: center;
+  margin-top: 5rem;
+}
+
 @media screen and (min-width: 775px) {
   .btn-container {
     margin: 0 auto;
