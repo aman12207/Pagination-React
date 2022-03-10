@@ -4,6 +4,7 @@ import { useGlobalContext } from './context'
 const RenderList = props => {
   const {selectedData,activeBtn,setActiveBtn} = useGlobalContext();
   // console.log(selectedData)
+  console.log(activeBtn)
   const handleClick = (e) =>{
     setActiveBtn(e.target.id);
   }
@@ -11,13 +12,14 @@ const RenderList = props => {
     setActiveBtn((activeBtn-10+100)%100);
   }
   const handleNext = () =>{
-    setActiveBtn((activeBtn+10)%100);
+  console.log(activeBtn)
+      setActiveBtn((parseInt(activeBtn)+10)%100);
   }
   const renderBtn = () =>{
     const btnList = [];
     var tempId = 0;
       for(var i = 1 ; i<=10 ;i++){
-        btnList.push(<button key={i} id={tempId} onClick={handleClick} className={`page-btn `}>{i}</button>)
+        btnList.push(<button key={i} id={tempId} onClick={handleClick} className={`page-btn ${i===(activeBtn/10)+1 && 'active-btn'}`}>{i}</button>)
         tempId+=10;
       }
       return btnList;
